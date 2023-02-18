@@ -4,6 +4,7 @@ function data() {
     let emailadd = document.getElementById("email").vlaue;
     let pass = document.getElementById("password").value;
     let date = document.getElementById("db").value;
+    let reguler = new RegExp("[A-Z][A-Z0-9]{5,32}@[A-Z][A-Z0-9]{3,32}.[A-Z]{2,5}")
     let vaild = true;
     if (username == "") {
         document.getElementById("suser").innerText = "required";
@@ -21,6 +22,9 @@ function data() {
     if (emailadd == "") {
         document.getElementById("semail").innerText = "required"
         vaild = false;
+    }
+    else if (!reguler.test(emailadd)) {
+        document.getElementById("semail").innerText = "Invalid your emali address"
     }
     else {
         document.getElementById("semail").innerText = ""
